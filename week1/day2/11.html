@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css flex</title>
+    <style>
+        .cont>div{
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            font: 30px;
+            padding: 30px;
+
+        }
+
+        .cont>div:nth-child(1) {
+            order: 12;
+            flex-grow: 1;
+            flex-basis: 300px;
+            background-color: red;
+        }
+        .cont>div:nth-child(2) {
+            order: 11;
+            flex-shrink: 2;
+            background-color: green;
+        }
+        .cont>div:nth-child(3) {
+            background-color: yellow;
+        }
+        .cont{
+            border: 1px solid black;
+            padding: 20px;
+            margin: 20px;
+            height: 200px;
+            background-color: aquamarine;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            flex-wrap: wrap;
+            align-content: center;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to css flexbox</h1>
+    <div class="cont">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <!-- <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div> -->
+        
+    
+    </div>
+</body>
+</html>

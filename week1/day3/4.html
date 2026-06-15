@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    img {
+        width: 100%;
+
+    }
+    @media screen and (max-width:1200px) and (min-width:750) {
+        .cont {
+            grid-tempelate-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media screen and (max-width:749) and (min-width:350) {
+        .cont {
+            grid-tempelate-columns: repeat(1, 1fr);
+        }
+    }
+</head>
+<body>
+    <div class="cont">
+        <div></div>
+    </div>
+</body>
+</html>

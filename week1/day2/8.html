@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinators</title>
+    <style>
+        .two{
+            background-color: red;
+        }
+        h3~p{
+            color: green;
+        }
+        div>div>div>p{
+            background-color: green;
+        }
+        p+p+p{
+            border: 10px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>1</h1>
+        <h2>2</h2>
+        <div>
+            <span>3</span>
+            <p>4</p>
+            <div>
+                <p>5</p>
+                <p>50</p>
+                <p>500</p>
+                <h3 id="one">6</h3>
+            </div>
+        </div>
+    </div>
+    <div>
+        <span>7</span>
+        <p>8</p>
+        <p class="two">9</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <style>
+        .cont{
+            background-color: teal;
+            padding: 20px;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            /* row-gap: 20px;
+            column-gap: 10px; */
+            grid-template-areas: "one one three"
+            "four five five"
+            "four eight nine";
+        }
+
+        .cont>div {
+            padding: 20px;
+        }
+
+        #one {
+            background-color: #ed5e04;
+            grid-area: one;
+        }
+        #two {
+            background-color: #eeb311;
+            grid-area: two;
+        }
+        #three {
+            background-color: #6de715;
+            grid-area: three;
+        }
+        #four {
+            background-color: #6de715;
+            /* grid-lines: RS/CS/RE/CE; */
+            /* grid-area: 2/1/4/2; */
+            grid-area: four;
+        }
+        
+        #five {
+            background-color: #0e84dd;
+            /* grid-area: 2/2/3/4; */
+            grid-area: five;
+        }
+        #six {
+            background-color: #c70ced;
+            grid-area: six;
+        }
+        #seven {
+            background-color: #ac119f;
+            grid-area: seven;
+        }
+        #eight {
+            background-color: #ab1444;
+            grid-area: eight;
+        }
+        #nine {
+            background-color: #ae2121;
+            grid-area: nine;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div id="one">1</div>
+        <!-- <div id="two">2</div> -->
+        <div id="three">3</div>
+        <div id="four">4</div>
+        <div id="five">5</div>
+        <!-- <div id="six">6</div> -->
+        <!-- <div id="seven">7</div> -->
+        <div id="eight">8</div>
+        <div id="nine">9</div>
+    </div>
+</body>
+</html>
