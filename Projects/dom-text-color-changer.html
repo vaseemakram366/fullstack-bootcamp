@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOM-II</title>
+</head>
+
+<body>
+
+<!-- Heading to change color -->
+<h1>Coding Student</h1>
+
+<!-- Buttons to change text color -->
+<button onClick="changeRed()">Change Text color to red</button>
+<button onClick="changeYellow()">Change Text color to yellow</button>
+
+</body>
+</html>
+
+<script>
+
+  // Change h1 text color to red
+  function changeRed(){
+    document.querySelector("h1").style.color = "red";
+  }
+
+  // Change h1 text color to yellow
+  function changeYellow(){
+    document.querySelector("h1").style.color = "yellow";
+  }
+
+</script>
