@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naptol</title>
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #222;
+}
+
+#total {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    color: #2563eb;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#root {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+#root > div {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#root > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+img {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    padding: 15px;
+    background: white;
+}
+
+h3 {
+    padding: 0 15px;
+    margin: 10px 0;
+    color: #222;
+    font-size: 16px;
+}
+
+p {
+    padding: 0 15px;
+    color: #666;
+    line-height: 1.5;
+    font-size: 14px;
+
+    /* Description ko control karne ke liye */
+    height: 90px;
+    overflow: hidden;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    margin: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Price Button */
+button:nth-of-type(1) {
+    background-color: #22c55e;
+    color: white;
+}
+
+/* Rating Button */
+button:nth-of-type(2) {
+    background-color: #f59e0b;
+    color: white;
+}
+
+/* Remove Button */
+button:last-child {
+    background-color: #ef4444;
+    color: white;
+    width: calc(100% - 30px);
+    margin: 15px;
+    font-weight: bold;
+}
+
+button:last-child:hover {
+    background-color: #dc2626;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+}
+
+span {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    #root {
+        grid-template-columns: 1fr;
+    }
+
+    #total {
+        font-size: 22px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Naptol Cart Page</h1>
+
+    <h1 id="total">Total cart value: </h1>
+
+    <div id="root">
+        <!-- All Product come here... -->
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    let cartArr = JSON.parse(localStorage.getItem("cart")) || [];
+
+    displayCart(cartArr)
+
+    const totalCartValue = cartArr.reduce((acc, el) => {
+        return acc + el.price
+    }, 0)
+
+    console.log(totalCartValue);
+    document.querySelector("#total").innerText = `Total cart value: ${totalCartValue} `
+
+
+    function displayCart(arr) {
+
+        document.querySelector("#root").innerText = ""
+        arr.forEach((el, i) => {
+
+            const box = document.createElement("div");
+
+            const image = document.createElement("img");
+            image.setAttribute("src", el.image);
+
+            const title = document.createElement("h3");
+            title.innerHTML = `<span>Title:</span> ${el.title}`
+
+            const category = document.createElement("h3");
+            category.innerText = `Category: ${el.category}`
+
+            const description = document.createElement("p");
+            description.innerText = `Description: ${el.description}`
+
+            const price = document.createElement("button");
+            price.innerText = `Price: ${el.price}`
+
+            const rating = document.createElement("button");
+            rating.innerText = `Rating: ${el.rating.rate}`
+
+            const hrr = document.createElement("hr");
+
+            const removebtn = document.createElement("button");
+            removebtn.innerText = "Remove"
+
+            removebtn.addEventListener("click", function () {
+                cartArr.splice(i, 1)
+
+                localStorage.setItem("cart", JSON.stringify(cartArr));
+                alert("Product Removed from cart")
+                displayCart(cartArr)
+                const totalCartValue = cartArr.reduce((acc, el) => {
+                    return acc + el.price
+                }, 0)
+
+                console.log(totalCartValue);
+                document.querySelector("#total").innerText = `Total cart value: ${totalCartValue} `
+
+
+
+            })
+
+            box.append(image, title, category, description, price, rating, hrr, removebtn);
+
+            document.querySelector("#root").append(box)
+        })
+    }
+</script>
