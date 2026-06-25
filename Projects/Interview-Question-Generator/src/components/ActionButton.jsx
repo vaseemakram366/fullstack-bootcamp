@@ -1,6 +1,9 @@
 function ActionButton({ generateQuestion }) {
     return (
-        <button onClick={generateQuestion}>
+        <button
+            className="generate-btn"
+            onClick={generateQuestion}
+        >
             Generate Question
         </button>
     );

@@ -22,10 +22,10 @@ function App() {
       Math.random() * categoryQuestions.length
     );
 
-    const randomQuestion = categoryQuestions[randomIndex];
+    const randomQuestion =
+      categoryQuestions[randomIndex];
 
     setCurrentQuestion(randomQuestion);
-
     setShowAnswer(false);
   }
 
@@ -37,9 +37,16 @@ function App() {
         setSelectedCategory={setSelectedCategory}
       />
 
-      <h3>Selected Category: {selectedCategory}</h3>
+      <div className="selected-category">
+        <h3>
+          Selected Category:{" "}
+          {selectedCategory || "None"}
+        </h3>
+      </div>
 
-      <ActionButton generateQuestion={generateQuestion} />
+      <ActionButton
+        generateQuestion={generateQuestion}
+      />
 
       <QuestionCard
         currentQuestion={currentQuestion}

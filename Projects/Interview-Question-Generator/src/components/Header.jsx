@@ -1,8 +1,11 @@
 function Header() {
     return (
-        <header>
+        <header className="header">
             <h1>Interview Question Generator</h1>
-            <p>Practice HTML, CSS, JavaScript, React, Git and DSA</p>
+            <p>
+                Practice HTML, CSS, JavaScript,
+                React, Git and DSA
+            </p>
         </header>
     );
 }

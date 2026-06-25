@@ -1,27 +1,45 @@
 function CategoryButtons({ setSelectedCategory }) {
     return (
-        <div>
-            <button onClick={() => setSelectedCategory("html")}>
+        <div className="category-container">
+            <button
+                className="category-btn"
+                onClick={() => setSelectedCategory("html")}
+            >
                 HTML
             </button>
 
-            <button onClick={() => setSelectedCategory("css")}>
+            <button
+                className="category-btn"
+                onClick={() => setSelectedCategory("css")}
+            >
                 CSS
             </button>
 
-            <button onClick={() => setSelectedCategory("javascript")}>
+            <button
+                className="category-btn"
+                onClick={() => setSelectedCategory("javascript")}
+            >
                 JavaScript
             </button>
 
-            <button onClick={() => setSelectedCategory("react")}>
+            <button
+                className="category-btn"
+                onClick={() => setSelectedCategory("react")}
+            >
                 React
             </button>
 
-            <button onClick={() => setSelectedCategory("git")}>
+            <button
+                className="category-btn"
+                onClick={() => setSelectedCategory("git")}
+            >
                 Git
             </button>
 
-            <button onClick={() => setSelectedCategory("dsa")}>
+            <button
+                className="category-btn"
+                onClick={() => setSelectedCategory("dsa")}
+            >
                 DSA
             </button>
         </div>

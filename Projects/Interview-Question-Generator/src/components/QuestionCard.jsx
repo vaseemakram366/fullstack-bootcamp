@@ -5,30 +5,37 @@ function QuestionCard({
 }) {
     if (!currentQuestion) {
         return (
-            <div>
-                <h2>Question</h2>
-                <p>Select a category and generate a question.</p>
+            <div className="question-card">
+                <p>
+                    Select a category and generate a
+                    question.
+                </p>
             </div>
         );
     }
 
     return (
-        <div>
-            <h2>Question</h2>
+        <div className="question-card">
+            <h2>Interview Question</h2>
 
-            <p>{currentQuestion.question}</p>
+            <p className="question">
+                {currentQuestion.question}
+            </p>
 
-            <button
-                onClick={() => setShowAnswer(true)}
-            >
-                Show Answer
-            </button>
+            {!showAnswer && (
+                <button
+                    className="show-btn"
+                    onClick={() => setShowAnswer(true)}
+                >
+                    Show Answer
+                </button>
+            )}
 
             {showAnswer && (
-                <>
-                    <h3>Answer:</h3>
+                <div className="answer">
+                    <strong>Answer:</strong>
                     <p>{currentQuestion.answer}</p>
-                </>
+                </div>
             )}
         </div>
     );
