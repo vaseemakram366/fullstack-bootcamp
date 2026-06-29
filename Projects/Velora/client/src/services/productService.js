@@ -1,5 +1,13 @@
-import api from "./api";
+import API from "../api/axios";
 
-export const getProducts = () => api.get("/products");
+// Get All Products
+export const getProducts = async () => {
+    const response = await API.get("/products");
+    return response.data;
+};
 
-export const getProduct = (id) => api.get(`/products/${id}`);
+// Get Single Product
+export const getProduct = async (id) => {
+    const response = await API.get(`/products/${id}`);
+    return response.data;
+};

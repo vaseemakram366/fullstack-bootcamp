@@ -1,22 +1,24 @@
-import { FaHeart, FaStar, FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaShoppingCart, FaStar } from "react-icons/fa";
 
 function ProductCard({ product }) {
-    return (
-        <div className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition duration-300">
 
-            <div className="relative overflow-hidden">
+    const image =
+        product.images && product.images.length > 0
+            ? product.images[0]
+            : "https://picsum.photos/400";
+
+    return (
+        <div className="group bg-white rounded-2xl shadow-lg overflow-hidden">
+
+            <div className="relative">
 
                 <img
-                    src={product.image}
+                    src={image}
                     alt={product.name}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition duration-300"
+                    className="w-full h-64 object-cover"
                 />
 
-                <span className="absolute top-3 left-3 bg-red-500 text-white text-xs px-3 py-1 rounded-full">
-                    -20%
-                </span>
-
-                <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow">
+                <button className="absolute top-3 right-3 bg-white p-2 rounded-full">
                     <FaHeart />
                 </button>
 
@@ -28,29 +30,42 @@ function ProductCard({ product }) {
                     {product.name}
                 </h3>
 
-                <div className="flex items-center gap-1 text-yellow-500 mt-2">
+                <p className="text-gray-500 mt-2">
+                    {product.description}
+                </p>
+
+                <div className="flex items-center mt-3 text-yellow-500">
                     <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <span className="text-gray-500 text-sm">(4.9)</span>
+                    <span className="ml-2">
+                        {product.rating}
+                    </span>
                 </div>
 
-                <p className="text-2xl font-bold mt-3">
-                    {product.price}
+                <div className="mt-4">
+
+                    <span className="text-2xl font-bold">
+                        ₹{product.price.toLocaleString("en-IN")}
+                    </span>
+
+                    {product.discountPrice > 0 && (
+                        <span className="ml-3 text-gray-400 line-through">
+                            ₹{product.discountPrice.toLocaleString("en-IN")}
+                        </span>
+                    )}
+
+                </div>
+
+                <p className="text-green-600 mt-3">
+                    Stock : {product.stock}
                 </p>
 
-                <p className="text-green-600 text-sm mt-1">
-                    Free Delivery
-                </p>
-
-                <button className="mt-5 w-full bg-black text-white py-3 rounded-xl flex justify-center items-center gap-2 hover:bg-gray-800">
+                <button className="w-full mt-5 bg-black text-white py-3 rounded-xl flex justify-center items-center gap-2">
                     <FaShoppingCart />
-                    Add to Cart
+                    Add To Cart
                 </button>
 
             </div>
+
         </div>
     );
 }
